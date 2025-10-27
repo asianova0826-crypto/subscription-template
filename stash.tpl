@@ -45,9 +45,9 @@
 {{- $proxyNames := "" -}}
 {{- range $proxy := $supportedProxies -}}
   {{- if eq $proxyNames "" -}}
-    {{- $proxyNames = $proxy.Name -}}
+    {{- $proxyNames = $proxy.Name | quote -}}
   {{- else -}}
-    {{- $proxyNames = printf "%s, %s" $proxyNames $proxy.Name -}}
+    {{- $proxyNames = printf "%s, \"%s\"" $proxyNames $proxy.Name -}}
   {{- end -}}
 {{- end -}}
 
